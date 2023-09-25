@@ -69,11 +69,17 @@ class addEmployee {
       ),
     smoker: () => cy.get("[type='checkbox']"),
     saveInfo: () => cy.get(".oxd-form-actions > :nth-child(2)"),
-    employeeId: () => cy.get(".oxd-table-filter"),
     searchBtn: () => cy.get(".oxd-form-actions > .oxd-button--secondary"),
-    row: () => cy.get(".orangehrm-container"),
-    container: () => cy.get(".oxd-grid-4 > :nth-child(1)"),
     child1: () => cy.get(".oxd-table-body > :nth-child(1) > .oxd-table-row"),
+    searchChild: () => cy.get(".oxd-input-group"),
+    assertFirstMiddleName: () =>
+      cy.get(
+        ".oxd-table-body > :nth-child(1) > .oxd-table-row > :nth-child(3) > div"
+      ),
+    assertLastName: () =>
+      cy.get(
+        ".oxd-table-body > :nth-child(1) > .oxd-table-row > :nth-child(4) > div"
+      ),
   };
 
   loginFUNC(userName: string, password: string) {
@@ -83,20 +89,32 @@ class addEmployee {
   }
 
   searchEmployee(arr: { key: any; value: any }[]) {
+    let arrayNames = ["Employee Name", "Employee Id"];
     {
       for (let i = 0; i < arr.length; i++) {
-        if (arr[i].key == "Employee Name") {
-          this.elements.container().eq(0).type(arr[i].value);
+        if (arr[i].key == arrayNames[0]) {
+          this.elements.searchChild().eq(0).type(arr[i].value);
+        } else if (arr[i].key == arrayNames[1]) {
+          this.elements.searchChild().eq(1).type(arr[i].value);
         }
 
         this.elements.searchBtn().click({ force: true });
-        cy.wait(2000);
-        this.elements.child1().click({ multiple: true });
       }
     }
   }
+  assertSearchResults(firstName: string, middleName: string, lastName: string) {
+
+    this.elements
+      .assertFirstMiddleName()
+      .contains(firstName + " " + middleName)
+      .should("exist");
+
+    this.elements.assertLastName().contains(lastName).should("exist");
+    this.elements.child1().click({ multiple: true });
+  }
+
   assertEmployeeName(firstName: string, lastName: string) {
-    this.elements.loadingIndicator().should("exist");
+    this.elements.loadingIndicator().should("not.exist");
     this.elements
       .asserName()
       .contains(firstName + " " + lastName)
@@ -132,7 +150,6 @@ class addEmployee {
     this.elements.smoker().check({ force: true });
     this.elements.saveInfo().click();
   }
- 
 }
 
 export default addEmployee;

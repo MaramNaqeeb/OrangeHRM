@@ -1,6 +1,6 @@
 import addEmployee from "../../support/projectObject/addEmployee";
 let empId: number;
-let username: string = "enyynnamiiifkag";
+let username: string = "vrjjsvvbviiifkag";
 const addEmp: addEmployee = new addEmployee();
 
 describe("my first test", () => {
@@ -54,6 +54,11 @@ describe("my first test", () => {
           value: user.firstName + " " + user.middleName + " " + user.lastName,
         },
       ]);
+      addEmp.assertSearchResults(
+        user.firstName,
+        user.middleName,
+        user.lastName
+      );
       addEmp.assertEmployeeName(user.firstName, user.lastName);
       addEmp.personalInfo(
         user.nickName,
