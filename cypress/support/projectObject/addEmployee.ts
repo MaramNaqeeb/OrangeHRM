@@ -88,7 +88,6 @@ class addEmployee {
       this.elements.loginBTN().click({ force: true });
   }
 
-
   searchEmployee(arr: { key: any; value: any }[]) {
     let arrayNames = ["Employee Name", "Employee Id"];
     {
@@ -100,12 +99,10 @@ class addEmployee {
         }
 
         this.elements.searchBtn().click({ force: true });
-
       }
     }
   }
   assertSearchResults(firstName: string, middleName: string, lastName: string) {
-
     this.elements
       .assertFirstMiddleName()
       .contains(firstName + " " + middleName)
@@ -113,9 +110,8 @@ class addEmployee {
 
     this.elements.assertLastName().contains(lastName).should("exist");
     this.elements.child1().click({ multiple: true });
-
   }
-  
+
   assertEmployeeName(firstName: string, lastName: string) {
     this.elements.loadingIndicator().should("not.exist");
     this.elements
@@ -124,17 +120,22 @@ class addEmployee {
       .should("exist");
   }
   personalInfo(
+    nickName:string,
     otherid: string,
     driverLicense: string,
     licenceExpiredDate: string,
-
     nationality: string,
+    SSNNumber:string,
+    SINNumber:string,
     marital: string,
     birthDate: string,
+    military:string
   ) {
-    // this.elements.nickName().type(nickName);
+    this.elements.nickName().type(nickName);
     this.elements.otherId().type(otherid);
     this.elements.driverLicense().type(driverLicense);
+    this.elements.SSN().type(SSNNumber)
+    this.elements.SIN().type(SINNumber)
     this.elements.date().click({ force: true });
     this.elements.selectDate().contains(licenceExpiredDate).click();
     this.elements.nationality().click({ force: true });
@@ -144,15 +145,12 @@ class addEmployee {
     this.elements.dateBirth().click({ force: true });
     this.elements.birthOptions().contains(birthDate).click();
     this.elements.gender().eq(1).click({ force: true });
+
+    this.elements.military().type(military)
+
     this.elements.smoker().check({ force: true });
     this.elements.saveInfo().click();
   }
 }
 
- 
-
-  
-
-
-  
 export default addEmployee;

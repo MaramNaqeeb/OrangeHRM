@@ -73,12 +73,17 @@ describe("my first test", () => {
       );
       addEmp.assertEmployeeName(user.firstName, user.lastName);
       addEmp.personalInfo(
+        user.nickName,
         user.otherid,
         user.driverLicense,
         user.licenceExpiredDate,
         user.nationality,
+        user.SSNNumber,
+        user.SINNumber,
         user.marital,
         user.birthDate,
+        user.military,
+
       );
     });
   });
