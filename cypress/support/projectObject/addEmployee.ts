@@ -120,22 +120,22 @@ class addEmployee {
       .should("exist");
   }
   personalInfo(
-    nickName:string,
+    nickName: string,
     otherid: string,
     driverLicense: string,
     licenceExpiredDate: string,
     nationality: string,
-    SSNNumber:string,
-    SINNumber:string,
+    SSNNumber: string,
+    SINNumber: string,
     marital: string,
     birthDate: string,
-    military:string
+    military: string
   ) {
     this.elements.nickName().type(nickName);
     this.elements.otherId().type(otherid);
     this.elements.driverLicense().type(driverLicense);
-    this.elements.SSN().type(SSNNumber)
-    this.elements.SIN().type(SINNumber)
+    this.elements.SSN().type(SSNNumber);
+    this.elements.SIN().type(SINNumber);
     this.elements.date().click({ force: true });
     this.elements.selectDate().contains(licenceExpiredDate).click();
     this.elements.nationality().click({ force: true });
@@ -145,9 +145,7 @@ class addEmployee {
     this.elements.dateBirth().click({ force: true });
     this.elements.birthOptions().contains(birthDate).click();
     this.elements.gender().eq(1).click({ force: true });
-
-    this.elements.military().type(military)
-
+    this.elements.military().type(military);
     this.elements.smoker().check({ force: true });
     this.elements.saveInfo().click();
   }
