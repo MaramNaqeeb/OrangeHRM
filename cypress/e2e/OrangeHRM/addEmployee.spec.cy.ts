@@ -30,7 +30,7 @@ describe("my first test", () => {
           method: "POST",
           url: "/web/index.php/api/v2/admin/users",
           body: {
-            username: username,
+            username: user.userName,
             status: true,
             empNumber: empId,
             userRoleId: 2,
@@ -46,6 +46,18 @@ describe("my first test", () => {
       });
     });
   });
+  afterEach(function () {
+    console.log("a neew id" + empId);
+    cy.request({
+      method: "DELETE",
+      url: `/web/index.php/api/v2/pim/employees`,
+      body: {
+        ids: [empId],
+      },
+      failOnStatusCode: false,
+    });
+  });
+
   it("search employee", () => {
     cy.get("@addEmp").then((user: any) => {
       addEmp.searchEmployee([
@@ -61,16 +73,12 @@ describe("my first test", () => {
       );
       addEmp.assertEmployeeName(user.firstName, user.lastName);
       addEmp.personalInfo(
-        user.nickName,
         user.otherid,
         user.driverLicense,
         user.licenceExpiredDate,
-        user.SSNNumber,
-        user.SINNumber,
         user.nationality,
         user.marital,
         user.birthDate,
-        user.military
       );
     });
   });
