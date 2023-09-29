@@ -23,19 +23,15 @@ describe("login admin", () => {
     cy.get("@login").then((login: any) => {
       loginObj.loginAdmin(login[2].wrong_username, login[2].right_password);
       loginObj.verifyMessage(login[2].validation_message);
-
     });
   });
   it("login with a wrong password", () => {
     cy.get("@login").then((login: any) => {
-      
       loginObj.loginAdmin(login[3].right_username, login[3].wrong_password);
       loginObj.verifyMessage(login[3].validation_message);
-
     });
-    
   });
-  
+
   it("login with a wrong username and wrong password", () => {
     cy.get("@login").then((login: any) => {
       loginObj.loginAdmin(login[4].wrong_username, login[4].wrong_password);
@@ -53,7 +49,6 @@ describe("login admin", () => {
     cy.get("@login").then((login: any) => {
       loginObj.loginAdmin(login[6].right_username, login[6].empty_password);
       loginObj.verifyMessage(login[6].error_message);
-
       loginObj.requiredAfterPassword();
     });
   });

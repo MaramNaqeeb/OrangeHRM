@@ -16,20 +16,16 @@ class login {
 
   assertMessage = [
     {
-      msg: "Invalid Credentials",
+      msg: "Invalid credentials",
       elem: this.elements.invalidCredentials,
     },
     {
       msg: "Required",
       elem: this.elements.required,
-
-      exist: this.elements.required,
     },
     {
       msg: "Dashboard",
       elem: this.elements.dashboard,
-
-      exist: this.elements.invalidCredentials,
     },
   ];
 
@@ -42,9 +38,7 @@ class login {
     this.assertMessage.find(({ msg }) => msg === message)?.elem;
 
     if (message == "Invalid credentials") {
-      cy.contains(message, { timeout: 10000 }).should(
-        "be.visible"
-      );
+      cy.contains(message, { timeout: 10000 }).should("be.visible");
     } else if (message == "Required") {
       cy.contains(message, { timeout: 10000 }).should("be.visible");
     }
