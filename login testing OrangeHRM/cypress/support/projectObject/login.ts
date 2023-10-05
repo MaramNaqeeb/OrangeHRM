@@ -1,3 +1,4 @@
+import {enumMessages} from './enums'
 class login {
   elements = {
     userName: () => cy.getByCy("Username"),
@@ -8,23 +9,32 @@ class login {
 
     required: () => cy.get(".oxd-input-field-error-message"),
     dashboard: () => cy.get(".oxd-topbar-header-breadcrumb-module"),
-    requiredUserName: () =>
-      cy.get(":nth-child(2) > .oxd-input-group > .oxd-text"),
-    requiredPassword: () =>
-      cy.get(":nth-child(3) > .oxd-input-group > .oxd-text"),
   };
+  requiredUserName(): any {
+    cy.get(".oxd-form-row").eq(0);
+    return cy.get(
+      ".oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message"
+    );
+  }
+  requiredPassword(): any {
+    cy.get(".oxd-form-row").eq(1);
+    return cy.get(
+      ".oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message"
+    );
+  }
+  
 
   assertMessage = [
     {
-      msg: "Invalid credentials",
+      msg: enumMessages.msg1,
       elem: this.elements.invalidCredentials,
     },
     {
-      msg: "Required",
+      msg: enumMessages.msg2,
       elem: this.elements.required,
     },
     {
-      msg: "Dashboard",
+      msg: enumMessages.msg3,
       elem: this.elements.dashboard,
     },
   ];
@@ -44,22 +54,18 @@ class login {
     }
   }
 
+  varifyAvailability(attributeType:any,attributeName:any){
+this.elements.password().should("have.attr", attributeType, attributeName);
+  }
+
   verifyHiddenPassword() {
     this.elements.password().should("have.attr", "type", "password");
   }
   requiredAfterUserName() {
-    this.elements
-      .requiredUserName()
-      .contains("Required")
-      .prevAll()
-      .contains("Username");
+    this.requiredUserName().prevAll().contains("Username");
   }
   requiredAfterPassword() {
-    this.elements
-      .requiredPassword()
-      .contains("Required")
-      .prevAll()
-      .contains("Password");
+    this.requiredPassword().prevAll().contains("Password");
   }
 }
 

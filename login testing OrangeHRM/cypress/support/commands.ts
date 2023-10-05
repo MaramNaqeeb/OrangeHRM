@@ -24,15 +24,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-declare namespace Cypress{
-    interface Chainable<Subject>{
-        getByCy: typeof getByCy
-    }
+declare namespace Cypress {
+  interface Chainable<Subject> {
+    getByCy: typeof getByCy;
+  }
 }
 
-function getByCy(field:string){
-        return cy.get(`[placeholder='${field}']`)
-    }
+function getByCy(field: string) {
+  return cy.get(`[placeholder='${field}']`);
+}
 
-Cypress.Commands.add('getByCy',getByCy) 
-
+Cypress.Commands.add("getByCy", getByCy);
