@@ -88,6 +88,7 @@ class addEmployee {
       this.elements.loginBTN().click({ force: true });
   }
 
+  
   searchEmployee(arr: { key: any; value: any }[]) {
     let arrayNames = ["Employee Name", "Employee Id"];
     {
