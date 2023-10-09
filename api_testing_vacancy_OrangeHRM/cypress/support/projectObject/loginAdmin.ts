@@ -4,6 +4,7 @@ class loginAdmin {
     password: () => cy.getByCy("Password"),
     loginBTN: () => cy.get("[type=submit]"),
   };
+  
 
   loginFUNC(userName: string, password: string) {
     this.elements.userName().type(userName),

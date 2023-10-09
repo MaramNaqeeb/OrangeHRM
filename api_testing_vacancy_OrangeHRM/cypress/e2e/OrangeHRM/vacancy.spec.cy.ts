@@ -7,6 +7,7 @@ import {
 } from "../../support/helpers/payLoads";
 import login from "../../support/projectObject/loginAdmin";
 
+
 const loginObj: login = new login();
 
 describe("OrangeHRM-create and edit vacancy", () => {

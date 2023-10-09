@@ -15,6 +15,7 @@ export const newVacancy = (v?: vacancy): any => {
   return vacancy;
 };
 
+
 export const editVacancies = (edit?: editVacancy): any => {
   var editVacancy: any = {
     name: "Testing" || edit?.name,
