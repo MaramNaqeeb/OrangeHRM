@@ -10,6 +10,7 @@ class loginAdmin {
     this.elements.password().type(password),
     this.elements.loginBTN().click({ force: true });
   }
+  
 }
 
 export default loginAdmin;

@@ -21,4 +21,5 @@ export interface vacancyResponse {
   };
   meta: [];
   rels: [];
+  
 }

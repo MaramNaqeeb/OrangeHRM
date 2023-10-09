@@ -12,6 +12,7 @@ export const newVacancy = (vacancy?: vacancyPayload): any => {
     jobTitleId: 1 || vacancy?.jobTitleId,
     status: true || vacancy?.status,
   };
+  
   return addVacancy;
 };
 
