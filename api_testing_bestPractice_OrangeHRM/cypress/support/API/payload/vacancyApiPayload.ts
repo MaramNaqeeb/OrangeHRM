@@ -7,5 +7,4 @@ export interface vacancyPayload{
     name: string;
     numOfPositions: number;
     status: boolean;
-  
 }

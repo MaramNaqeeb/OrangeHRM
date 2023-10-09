@@ -4,6 +4,7 @@ import login from "../../support/projectObject/loginAdmin";
 const loginObj: login = new login();
 
 describe("OrangeHRM-create and edit vacancy", () => {
+  
   beforeEach(function () {
     cy.visit("/");
     loginObj.loginFUNC("Admin", "admin123");

@@ -26,5 +26,6 @@ Cypress.Commands.add(
         expect(response.status).to.equal(200);
       })
       .its("body");
+      
   }
 );
