@@ -5,6 +5,7 @@ describe("login admin", () => {
     cy.visit("/");
     cy.fixture("login").as("login");
   });
+  
   it("login with a right username and password", () => {
     payloadLogin.validUserNameAndPassword();
   });

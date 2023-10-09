@@ -16,6 +16,7 @@ class payloadLogin {
       };
     });
   }
+  
   static lowecaseUsername() {
     cy.get("@login").then((login: any) => {
       loginPayLoad = {
