@@ -1,5 +1,6 @@
 import {enumMessages} from './enums'
 class login {
+  
   elements = {
     userName: () => cy.getByCy("Username"),
 
