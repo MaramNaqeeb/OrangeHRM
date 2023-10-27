@@ -14,7 +14,7 @@ export let userId: number;
 export let vacancyId: any;
 export let jobID: any;
 let leaveId: number;
-export var candidateId: any;
+
 export const URLs = {
   addEmployeeForm: `${baseUrl}/web/index.php/pim/addEmployee`,
   employee: `${baseUrl}/web/index.php/api/v2/pim/employees`,

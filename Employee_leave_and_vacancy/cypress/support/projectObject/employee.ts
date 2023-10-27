@@ -49,6 +49,7 @@ class Employee {
     this.elements.tableRow().should("have.length", 1);
     this.elements.assertAttachment().eq(6).should("contain", status);
   }
+  
 }
 
 export default Employee;

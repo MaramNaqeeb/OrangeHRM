@@ -48,6 +48,7 @@ describe("OrangeHRM-addEmployee and Entitlement-prerequisite", () => {
     employeeObj.assertLeave("Scheduled");
   });
 });
+
 describe("OrangeHRM-addEmployee and addVacancy-prerequisite", () => {
   beforeEach(function () {
     cy.visit("/");

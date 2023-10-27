@@ -4,4 +4,5 @@ export interface EntitlementPayload {
   fromDate:string;
   leaveTypeId: number;
   toDate: string;
+  
 }

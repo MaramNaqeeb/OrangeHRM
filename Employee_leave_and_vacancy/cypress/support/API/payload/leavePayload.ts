@@ -5,6 +5,7 @@ export interface LeavePayload {
   leaveTypeId: number;
   partialOption: string;
   toDate: string;
+  
 }
 
 
