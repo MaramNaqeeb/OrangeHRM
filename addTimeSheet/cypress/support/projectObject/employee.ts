@@ -8,6 +8,7 @@ class Employee {
     tableSelector: () => cy.get(".orangehrm-container"),
     rowSelector: () => cy.get(".oxd-table-row"),
   };
+  
 
   loginFUNC(userName: string, password: string) {
     this.elements.userName().type(userName),

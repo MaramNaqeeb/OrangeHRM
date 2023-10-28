@@ -26,6 +26,7 @@ function API(
     .then((response) => {
       expect(response.status).to.equal(200);
     });
+    
 }
 
 Cypress.Commands.add("getByCy", getByCy);

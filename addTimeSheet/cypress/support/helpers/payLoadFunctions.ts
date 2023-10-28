@@ -11,7 +11,6 @@ export const username: string = `Johnj${generatingFunctions.randomNumber()}`;
 export const password: string = `123qwe,./${generatingFunctions.randomNumber()}`;
 
 export const newEmployeeData = (e?: EmployeePayload): any => {
-  
   var employee: any = {
     empPicture: null,
     employeeId: employeeId,
