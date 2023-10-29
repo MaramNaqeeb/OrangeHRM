@@ -18,5 +18,6 @@ describe("OrangeHRM-create and edit vacancy", () => {
       cy.get('[type="submit"]').click();
       cy.get(".orangehrm-buzz-newsfeed-posts").contains(str);
     });
+    
   });
 });
