@@ -7,6 +7,7 @@ export interface vacancy{
   numOfPositions: null,
   status: boolean,
 }
+
 export interface editVacancy{
   description?:string,
   employeeId: number,

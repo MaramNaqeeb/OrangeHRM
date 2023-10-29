@@ -6,6 +6,7 @@ export const URLs = {
   getVacancy:`${baseUrl}/web/index.php/api/v2/recruitment/vacancies?limit=50&offset=0&vacancyId=${vacancyId}&sortField=vacancy.name&sortOrder=ASC&model=detailed`,
   deleteVacancy: `${baseUrl}/web/index.php/api/v2/recruitment/vacancies`,
 };
+
 export default class apiHelpers {
   static addVacancy(payload: Object) {
     cy.API("POST", URLs.vacancy, payload);

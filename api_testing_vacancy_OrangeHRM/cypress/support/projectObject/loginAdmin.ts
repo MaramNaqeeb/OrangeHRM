@@ -1,4 +1,5 @@
 class loginAdmin {
+  
   elements = {
     userName: () => cy.getByCy("Username"),
     password: () => cy.getByCy("Password"),
