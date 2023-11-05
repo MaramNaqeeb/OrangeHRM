@@ -12,9 +12,11 @@ class payloadLogin {
           login[0].right_password
         ),
         dashboard: loginObj.verifyMessage(login[0].main_page_dashboard),
+        
       };
     });
   }
+  
   static lowecaseUsername() {
     cy.get("@login").then((login: any) => {
       loginPayLoad = {
